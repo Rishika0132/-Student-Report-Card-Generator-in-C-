@@ -1,1 +1,0 @@
-# -Student-Report-Card-Generator-in-C-

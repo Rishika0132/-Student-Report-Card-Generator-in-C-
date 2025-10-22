@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Student {
+    string name;
+    int rollNo;
+    float marks[5];
+    float total;
+    float percentage;
+    char grade;
+public:
+    // Constructor to pre-fill details
+    Student() {
+        name = "Rishika";
+        rollNo = 101;
+        marks[0] = 85;
+        marks[1] = 78;
+        marks[2] = 90;
+        marks[3] = 88;
+        marks[4] = 80;
+        calculate();
+    }
+    void calculate() {
+        total = 0;
+        for (int i = 0; i < 5; i++) {
+            total += marks[i];
+        }
+        percentage = total / 5;
+        assignGrade();
+    }
+    void assignGrade() {
+        if (percentage >= 90)
+            grade = 'A';
+        else if (percentage >= 75)
+            grade = 'B';
+        else if (percentage >= 60)
+            grade = 'C';
+        else if (percentage >= 45)
+            grade = 'D';
+        else
+            grade = 'F';
+    }
+    void displayReportCard() {
+        cout << "\n----- STUDENT REPORT CARD -----\n";
+        cout << "Name: " << name << "\n";
+        cout << "Roll Number: " << rollNo << "\n";
+        cout << "Marks in Subjects: ";
+        for (int i = 0; i < 5; i++) {
+            cout << marks[i] << " ";
+        }
+        cout << "\nTotal Marks: " << total;
+        cout << "\nPercentage: " << percentage << "%";
+        cout << "\nGrade: " << grade << "\n";
+    }
+};
+int main() {
+    Student s;
+    s.displayReportCard();
+    return 0;
